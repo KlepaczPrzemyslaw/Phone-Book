@@ -1,0 +1,48 @@
+﻿@model List<PhoneBook.Models.PersonModel>
+
+@TempData["message"]
+
+<form asp-action="Index" method="get">
+    <label value="Szukaj nazwiska: "></label>
+    <input type="text" name="SearchText" value="@ViewBag.SearchText"/>
+    <input type="submit" value="Szukaj" />
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Telefon</th>
+        <th>Email</th>
+        <th>Utworzone</th>
+        <th>Aktualizowane</th>
+        <th>Akcja</th>
+    </tr>
+
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@person.ID</td>
+            <td>@person.FirstName</td>
+            <td>@person.LastName</td>
+            <td>@person.Phone</td>
+            <td>@person.Email</td>
+            <td>@person.Created</td>
+            <td>@person.Updated</td>
+            <td><a href="/Person/Edit/@person.ID">Edycja</a> | <a href="/Person/Remove/@person.ID">Usuń</a></td>
+        </tr>
+    }
+</table>
+
+@if (ViewBag.Previous != null)
+{
+    <a href="/Person/Index/?id=@ViewBag.Previous&searchText=@ViewBag.SearchText">Poprzednia strona</a>
+}
+
+<span>Strona @ViewBag.Page</span>
+
+@if (ViewBag.Next != null)
+{
+    <a href="/Person/Index/?id=@ViewBag.Next&searchText=@ViewBag.SearchText">Następna strona</a>
+}

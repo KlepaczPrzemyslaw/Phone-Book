@@ -1,0 +1,26 @@
+﻿@model PhoneBook.Models.PersonModel
+
+<form asp-action="Edit" method="post">
+    <input asp-for="ID" type="hidden" />
+    <div>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" placeholder="Imię" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+    <div>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" placeholder="Nazwisko" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div>
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" placeholder="Numer" />
+        <span asp-validation-for="Phone"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" placeholder="Example@example.com" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <input type="submit" value="Edytuj!" />
+</form>

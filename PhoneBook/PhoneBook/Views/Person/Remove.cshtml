@@ -1,0 +1,27 @@
+﻿@model PhoneBook.Models.PersonModel
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Telefon</th>
+        <th>Email</th>
+        <th>Utworzone</th>
+        <th>Aktualizowane</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>@Model.Phone</td>
+        <td>@Model.Email</td>
+        <td>@Model.Created</td>
+        <td>@Model.Updated</td>
+    </tr>
+</table>
+
+<form asp-action="Remove" method="post">
+    <input asp-for="ID" type="hidden" />
+    <input type="submit" value="Usuń!" />
+</form>
