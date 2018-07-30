@@ -1,27 +1,35 @@
 ﻿@model PhoneBook.Models.PersonModel
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
-        <th>Telefon</th>
-        <th>Email</th>
-        <th>Utworzone</th>
-        <th>Aktualizowane</th>
-    </tr>
-    <tr>
-        <td>@Model.ID</td>
-        <td>@Model.FirstName</td>
-        <td>@Model.LastName</td>
-        <td>@Model.Phone</td>
-        <td>@Model.Email</td>
-        <td>@Model.Created</td>
-        <td>@Model.Updated</td>
-    </tr>
-</table>
+<section class="my-section">
+    <div class="container">
+        <table class="table table-responsive-lg table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Utworzone</th>
+                <th>Aktualizowane</th>
+            </tr>
+            <tr>
+                <td>@Model.ID</td>
+                <td>@Model.FirstName</td>
+                <td>@Model.LastName</td>
+                <td>@Model.Phone</td>
+                <td>@Model.Email</td>
+                <td>@Model.Created</td>
+                <td>@Model.Updated</td>
+            </tr>
+        </table>
+    </div>
+</section>
 
-<form asp-action="Remove" method="post">
-    <input asp-for="ID" type="hidden" />
-    <input type="submit" value="Usuń!" />
-</form>
+<section>
+    <div class="container">
+        <form asp-action="Remove" method="post">
+            <input asp-for="ID" type="hidden" />
+            <input type="submit" value="Usuń!" class="btn btn-danger" />
+        </form>
+    </div>
+</section>

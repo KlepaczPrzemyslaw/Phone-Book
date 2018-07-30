@@ -4,8 +4,73 @@
 <head>
     <meta name="viewport" content="width=device-width" charset="utf-8" />
     <title>Książka Telefoniczna</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/style.css" rel="stylesheet" />
 </head>
-<body>
-        @RenderBody()
+<body class="scroll">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="glyphicon-collapse-down navbar-collapse" id="navContent">
+                <div class="navbar-nav">
+                    <a href="/Person/Index" class="nav-item nav-link @ViewBag.NavbarIndexActive">Start</a>
+                    <a href="/Person/Add" class="nav-item nav-link @ViewBag.NavbarAddActive">Dodaj</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top -->
+    <div class="jumbotron jumbotron-fluid text-center my-top">
+        <div class="container">
+            <h1 class="my-top-h1">Książka Telefoniczna</h1>
+            <p class="my-top-p">Wyszukuj numery telefonów swoich znajomych!</p>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <hr>
+    <footer class="my-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <ul class="list-unstyled">
+                        <li>Biuro - 111-222-333</li>
+                        <li>Dyrekcja - 333-111-222</li>
+                        <li>Księgowość - 222-333-111</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <ul class="list-unstyled">
+                        <li>Biuro - biuro&#64example.com</li>
+                        <li>Dyrekcja - dyrekcja&#64example.com</li>
+                        <li>Księgowość - ksiegowosc&#64example.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <ul class="list-unstyled">
+                        <li>Czynne:</li>
+                        <li>Pn.-Pt. 8:00 - 16:00</li>
+                        <li>ul. Wolna 7 50-500 Wrocław</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center my-copyright">
+                &copy; Copyright 2017 - 2020 MyCompany Wszystkie prawa zastrzeżone! 
+                <span class="mt-1 d-block"> Designed by Przemysław Klepacz.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

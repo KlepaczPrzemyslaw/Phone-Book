@@ -1,48 +1,61 @@
 ﻿@model List<PhoneBook.Models.PersonModel>
 
-@TempData["message"]
-
-<form asp-action="Index" method="get">
-    <label value="Szukaj nazwiska: "></label>
-    <input type="text" name="SearchText" value="@ViewBag.SearchText"/>
-    <input type="submit" value="Szukaj" />
-</form>
-
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
-        <th>Telefon</th>
-        <th>Email</th>
-        <th>Utworzone</th>
-        <th>Aktualizowane</th>
-        <th>Akcja</th>
-    </tr>
-
-    @foreach (var person in Model)
-    {
-        <tr>
-            <td>@person.ID</td>
-            <td>@person.FirstName</td>
-            <td>@person.LastName</td>
-            <td>@person.Phone</td>
-            <td>@person.Email</td>
-            <td>@person.Created</td>
-            <td>@person.Updated</td>
-            <td><a href="/Person/Edit/@person.ID">Edycja</a> | <a href="/Person/Remove/@person.ID">Usuń</a></td>
-        </tr>
-    }
-</table>
-
-@if (ViewBag.Previous != null)
+@if (string.IsNullOrWhiteSpace((string)@TempData["message"]) == false)
 {
-    <a href="/Person/Index/?id=@ViewBag.Previous&searchText=@ViewBag.SearchText">Poprzednia strona</a>
+    <section class="my-section">
+        <div class="container text-success rounded my-message">
+            @TempData["message"]
+        </div>
+    </section>
 }
 
-<span>Strona @ViewBag.Page</span>
+<section class="my-section my-searchfield">
+    <div class="container">
+        <form asp-action="Index" method="get">
+            <label for="SearchText" class="form-control-label">Szukaj Nazwiska</label>
+            <div class="input-group">
+                <input type="text" id="SearchText" name="SearchText" class="form-control" placeholder="Nazwisko" value="@ViewBag.SearchText" />
+                <input type="submit" class="btn btn-warning" value="Szukaj" />
+            </div>
+        </form>
+    </div>
+</section>
 
-@if (ViewBag.Next != null)
-{
-    <a href="/Person/Index/?id=@ViewBag.Next&searchText=@ViewBag.SearchText">Następna strona</a>
-}
+<section class="my-section">
+    <div class="container">
+        <table class="table table-responsive-lg table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Utworzone</th>
+                <th>Aktualizowane</th>
+                <th>Akcja</th>
+            </tr>
+            @foreach (var person in Model)
+            {
+                <tr>
+                    <td>@person.ID</td>
+                    <td>@person.FirstName</td>
+                    <td>@person.LastName</td>
+                    <td>@person.Phone</td>
+                    <td>@person.Email</td>
+                    <td>@person.Created</td>
+                    <td>@person.Updated</td>
+                    <td><a href="/Person/Edit/@person.ID">Edycja</a> | <a href="/Person/Remove/@person.ID">Usuń</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</section>
+
+<section class="my-section">
+    <div class="container">
+        <a href="/Person/Index/?id=@ViewBag.Previous&searchText=@ViewBag.SearchText" class="btn btn-secondary @ViewBag.PreviousDis my-pagebutton">Poprzednia strona</a>
+        <span>Strona @ViewBag.Page</span>
+        <a href="/Person/Index/?id=@ViewBag.Next&searchText=@ViewBag.SearchText" class="btn btn-secondary @ViewBag.NextDis my-pagebutton"> Następna strona </a>
+    </div>
+</section>
+

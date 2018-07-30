@@ -19,6 +19,10 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Index(int id = 1, string searchText = null)
 		{
+			// Bootstrap - Layout
+			ViewBag.NavbarIndexActive = "active btn-light text-dark";
+			ViewBag.NavbarAddActive = "";
+
 			// Pobranie ogólnej liczby osób
 			int count = string.IsNullOrWhiteSpace(searchText) ? SourceManager.GetCount() : SourceManager.GetCount(searchText);
 
@@ -29,28 +33,36 @@ namespace PhoneBook.Controllers
 			if (id <= 1 && (id * 10) >= count)
 			{
 				ViewBag.Previous = null;
+				ViewBag.PreviousDis = "disabled";
 				ViewBag.Next = null;
+				ViewBag.NextDis = "disabled";
 				ViewBag.Page = 1;
 			}
 			// Dla pierwszej strony
 			else if (id <= 1)
 			{
 				ViewBag.Previous = null;
+				ViewBag.PreviousDis = "disabled";
 				ViewBag.Next = 2;
+				ViewBag.NextDis = "";
 				ViewBag.Page = id;
 			}
 			// Dla ostatniej strony
 			else if ((id * 10) >= count)
 			{
 				ViewBag.Previous = id - 1;
+				ViewBag.PreviousDis = "";
 				ViewBag.Next = null;
+				ViewBag.NextDis = "disabled";
 				ViewBag.Page = id;
 			}
 			// Dla strony pomiędzy
 			else
 			{
 				ViewBag.Previous = id - 1;
+				ViewBag.PreviousDis = "";
 				ViewBag.Next = id + 1;
+				ViewBag.NextDis = "";
 				ViewBag.Page = id;
 			}
 
@@ -68,6 +80,10 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Add()
 		{
+			// Bootstrap - Layout
+			ViewBag.NavbarIndexActive = "";
+			ViewBag.NavbarAddActive = "active btn-light text-dark";
+
 			// Zwrócenie widoku
 			return View();
 		}
@@ -96,6 +112,10 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Edit(int id)
 		{
+			// Bootstrap - Layout
+			ViewBag.NavbarIndexActive = "";
+			ViewBag.NavbarAddActive = "";
+
 			// Pobranie osoby z bazy po ID
 			PersonModel personModel = SourceManager.GetPerson(id);
 
@@ -131,6 +151,10 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Remove(int id)
 		{
+			// Bootstrap - Layout
+			ViewBag.NavbarIndexActive = "";
+			ViewBag.NavbarAddActive = "";
+
 			// Pobranie osoby z bazy po ID
 			PersonModel personModel = SourceManager.GetPerson(id);
 

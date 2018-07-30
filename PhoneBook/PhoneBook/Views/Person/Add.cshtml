@@ -1,25 +1,29 @@
 ﻿@model PhoneBook.Models.PersonModel
 
-<form asp-action="Add" method="post">
-    <div>
-        <label asp-for="FirstName"></label>
-        <input asp-for="FirstName" placeholder="Imię"/>
-        <span asp-validation-for="FirstName"></span>
+<section class="my-section">
+    <div class="container">
+        <form asp-action="Add" method="post">
+            <div>
+                <label asp-for="FirstName" class="form-control-label my-control-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="Imię" />
+                <span asp-validation-for="FirstName" class="text-danger my-control-danger"></span>
+            </div>
+            <div>
+                <label asp-for="LastName" class="form-control-label my-control-label"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Nazwisko" />
+                <span asp-validation-for="LastName" class="text-danger my-control-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Phone" class="form-control-label my-control-label"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Numer" />
+                <span asp-validation-for="Phone" class="text-danger my-control-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Email" class="form-control-label my-control-label"></label>
+                <input asp-for="Email" class="form-control " placeholder="Example@example.com" />
+                <span asp-validation-for="Email" class="text-danger my-control-danger"></span>
+            </div>
+            <input type="submit" value="Dodaj!" class="btn btn-success my-control-button" />
+        </form>
     </div>
-    <div>
-        <label asp-for="LastName"></label>
-        <input asp-for="LastName" placeholder="Nazwisko"/>
-        <span asp-validation-for="LastName"></span>
-    </div>
-    <div>
-        <label asp-for="Phone"></label>
-        <input asp-for="Phone" placeholder="Numer"/>
-        <span asp-validation-for="Phone"></span>
-    </div>
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" placeholder="Example@example.com"/>
-        <span asp-validation-for="Email"></span>
-    </div>
-    <input type="submit" value="Dodaj!" />
-</form>
+</section>

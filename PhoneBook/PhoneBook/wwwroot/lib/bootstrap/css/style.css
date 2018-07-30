@@ -1,0 +1,74 @@
+﻿/** Globalne Style **/
+.btn {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+/** Navbar **/
+.navbar .navbar-nav .nav-link {
+    padding: 0.65rem 2rem;
+}
+
+/** Top **/
+.my-top {
+    padding: 80px 0 105px 0;
+}
+
+.my-top-h1 {
+    margin-bottom: 1.25rem;
+    font-size: 3rem;
+}
+
+.my-top-p {
+    font-size: 1.1rem;
+}
+
+/** Footer **/
+.my-footer {
+    margin: 10px 0 15px 0;
+}
+
+.my-copyright {
+    margin: 10px 0 0 0;
+}
+
+/** Views - Sections **/
+.my-section {
+    margin: 10px 0 10px 0;
+}
+
+/** Form Controls**/
+.my-control-label {
+    padding: 10px 0 0 0;
+}
+
+.my-control-danger {
+    padding: 5px 0 5px 0;
+}
+
+.my-control-button {
+    margin: 10px 0 0 0;
+}
+
+/** Message **/
+.my-message {
+    background-color: #c4ffc7;
+    font-size: 1.5rem;
+}
+
+/** Buttons **/
+.my-pagebutton {
+    padding-left: 0;
+    padding-right: 0;
+    width: 170px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.my-searchfield {
+    margin-bottom: 20px;
+}
