@@ -19,10 +19,6 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Index(int id = 1, string searchText = null)
 		{
-			// Bootstrap - Layout
-			ViewBag.NavbarIndexActive = "active btn-light text-dark";
-			ViewBag.NavbarAddActive = "";
-
 			// Pobranie ogólnej liczby osób
 			int count = string.IsNullOrWhiteSpace(searchText) ? SourceManager.GetCount() : SourceManager.GetCount(searchText);
 
@@ -80,10 +76,6 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Add()
 		{
-			// Bootstrap - Layout
-			ViewBag.NavbarIndexActive = "";
-			ViewBag.NavbarAddActive = "active btn-light text-dark";
-
 			// Zwrócenie widoku
 			return View();
 		}
@@ -97,6 +89,7 @@ namespace PhoneBook.Controllers
 				// Dodanie w bazie
 				SourceManager.Add(personModel);
 				// Zwrócenie informacji
+				TempData["alertclass"] = "alert alert-success my-3";
 				TempData["message"] = "Dodano!";
 				// Przekierowanie widoku
 				return Redirect("/Person/Index");
@@ -112,10 +105,6 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Edit(int id)
 		{
-			// Bootstrap - Layout
-			ViewBag.NavbarIndexActive = "";
-			ViewBag.NavbarAddActive = "";
-
 			// Pobranie osoby z bazy po ID
 			PersonModel personModel = SourceManager.GetPerson(id);
 
@@ -136,6 +125,7 @@ namespace PhoneBook.Controllers
 				// Edycja w bazie
 				SourceManager.Edit(personModel);
 				// Zwrócenie informacji
+				TempData["alertclass"] = "alert alert-warning my-3";
 				TempData["message"] = "Zmieniono!";
 				// Przekierowanie widoku
 				return Redirect("/Person/Index");
@@ -151,10 +141,6 @@ namespace PhoneBook.Controllers
 		[HttpGet]
 		public IActionResult Remove(int id)
 		{
-			// Bootstrap - Layout
-			ViewBag.NavbarIndexActive = "";
-			ViewBag.NavbarAddActive = "";
-
 			// Pobranie osoby z bazy po ID
 			PersonModel personModel = SourceManager.GetPerson(id);
 
@@ -172,6 +158,7 @@ namespace PhoneBook.Controllers
 			// Usunięcie w bazie
 			SourceManager.Remove(personModel);
 			// Zwrócenie informacji
+			TempData["alertclass"] = "alert alert-danger my-3";
 			TempData["message"] = "Usunięto!";
 			// Przekierowanie widoku
 			return Redirect("/Person/Index");

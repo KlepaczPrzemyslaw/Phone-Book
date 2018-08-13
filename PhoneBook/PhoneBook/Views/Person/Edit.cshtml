@@ -1,30 +1,29 @@
 ﻿@model PhoneBook.Models.PersonModel
 
-<section class="my-section">
+<section>
     <div class="container">
         <form asp-action="Edit" method="post">
-            <input asp-for="ID" type="hidden" />
-            <div>
-                <label asp-for="FirstName" class="form-control-label my-control-label"></label>
+            <div class="my-3">
+                <label asp-for="FirstName" class="form-control-label"></label>
                 <input asp-for="FirstName" class="form-control" placeholder="Imię" />
-                <span asp-validation-for="FirstName" class="text-danger my-control-danger"></span>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="LastName" class="form-control-label my-control-label"></label>
+            <div class="my-3">
+                <label asp-for="LastName" class="form-control-label"></label>
                 <input asp-for="LastName" class="form-control" placeholder="Nazwisko" />
-                <span asp-validation-for="LastName" class="text-danger my-control-danger"></span>
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="Phone" class="form-control-label my-control-label"></label>
-                <input asp-for="Phone" class="form-control" placeholder="Numer" />
-                <span asp-validation-for="Phone" class="text-danger my-control-danger"></span>
+            <div class="my-3">
+                <label asp-for="Phone" class="form-control-label"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Format: 000-000-000" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div>
-                <label asp-for="Email" class="form-control-label my-control-label"></label>
+            <div class="my-3">
+                <label asp-for="Email" class="form-control-label"></label>
                 <input asp-for="Email" class="form-control" placeholder="Example@example.com" />
-                <span asp-validation-for="Email" class="text-danger my-control-danger"></span>
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <input type="submit" value="Edytuj!" class="btn btn-warning my-control-button" />
+            <input type="submit" value="Edytuj!" class="btn btn-warning my-3" style="width: 130px;" />
         </form>
     </div>
 </section>

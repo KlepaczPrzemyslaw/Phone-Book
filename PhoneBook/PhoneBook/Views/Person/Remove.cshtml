@@ -1,6 +1,6 @@
 ﻿@model PhoneBook.Models.PersonModel
 
-<section class="my-section">
+<section>
     <div class="container">
         <table class="table table-responsive-lg table-striped">
             <tr>
@@ -29,7 +29,7 @@
     <div class="container">
         <form asp-action="Remove" method="post">
             <input asp-for="ID" type="hidden" />
-            <input type="submit" value="Usuń!" class="btn btn-danger" />
+            <input type="submit" value="Usuń!" class="btn btn-danger" style="width: 130px;" />
         </form>
     </div>
 </section>

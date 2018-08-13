@@ -7,38 +7,44 @@
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
-    <link href="~/lib/bootstrap/css/style.css" rel="stylesheet" />
 </head>
-<body class="scroll">
+<body style="overflow-y: scroll;">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <nav class="navbar navbar-expand-md" style="background-color: #262b35;">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
-                <span class="navbar-toggler-icon"></span>
+                <span class="btn btn-light">Menu</span>
             </button>
             <div class="glyphicon-collapse-down navbar-collapse" id="navContent">
                 <div class="navbar-nav">
-                    <a href="/Person/Index" class="nav-item nav-link @ViewBag.NavbarIndexActive">Start</a>
-                    <a href="/Person/Add" class="nav-item nav-link @ViewBag.NavbarAddActive">Dodaj</a>
+                    <a href="/Person/Index" class="nav-item nav-link btn btn-light " style="width: 130px; margin-left: 0">PhoneBook</a>
+                </div>
+            </div>
+            <div class="float-right">
+                <div class="navbar-nav">
+                    <span class="nav-link text-white" style="width: 270px;">Designed by: Klepacz Przemysław</span>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Top -->
-    <div class="jumbotron jumbotron-fluid text-center my-top">
+    <div class="jumbotron jumbotron-fluid text-center text-white"
+         style="background-color: #304554; background-image: url('../../lib/img/pho.png'); background-position: 50% 100%; background-repeat: no-repeat">
         <div class="container">
-            <h1 class="my-top-h1">Książka Telefoniczna</h1>
-            <p class="my-top-p">Wyszukuj numery telefonów swoich znajomych!</p>
+            <h1 class="text-warning">Książka Telefoniczna</h1>
+            <p>Wyszukuj <span class="text-warning">numery telefonów</span> swoich znajomych!</p>
         </div>
     </div>
 
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
 
     <!-- Footer -->
     <hr>
-    <footer class="my-footer">
+    <footer class="text-muted">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-center">
@@ -63,9 +69,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="text-center my-copyright">
-                &copy; Copyright 2017 - 2020 MyCompany Wszystkie prawa zastrzeżone! 
-                <span class="mt-1 d-block"> Designed by Przemysław Klepacz.</span>
+            <div class="text-center mb-3">
+                &copy; Copyright 2017 - 2020 MyCompany Wszystkie prawa zastrzeżone!
             </div>
         </div>
     </footer>

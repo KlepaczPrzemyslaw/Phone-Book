@@ -2,30 +2,29 @@
 
 @if (string.IsNullOrWhiteSpace((string)@TempData["message"]) == false)
 {
-    <section class="my-section">
-        <div class="container text-success rounded my-message">
+    <section>
+        <div class = " @TempData["alertclass"] ">
             @TempData["message"]
         </div>
     </section>
 }
 
-<section class="my-section my-searchfield">
-    <div class="container">
+<div>
+    <section class="float-left ml-3 my-1">
+        <a href="/Person/Add" class="btn btn-success" style="width: 100px;">Dodaj</a>
+    </section>
+    <section class="float-right mr-3 my-1">
         <form asp-action="Index" method="get">
-            <label for="SearchText" class="form-control-label">Szukaj Nazwiska</label>
-            <div class="input-group">
-                <input type="text" id="SearchText" name="SearchText" class="form-control" placeholder="Nazwisko" value="@ViewBag.SearchText" />
-                <input type="submit" class="btn btn-warning" value="Szukaj" />
-            </div>
+            <input type="text" id="SearchText" name="SearchText" class="form-control d-inline align-bottom" placeholder="Szukaj Nazwiska" style="width: 250px;" value="@ViewBag.SearchText" />
+            <input type="submit" class="btn btn-warning" value="Szukaj" style="width: 100px;"/>
         </form>
-    </div>
-</section>
+    </section>
+</div>
 
-<section class="my-section">
+<section>
     <div class="container">
         <table class="table table-responsive-lg table-striped">
             <tr>
-                <th>ID</th>
                 <th>Imię</th>
                 <th>Nazwisko</th>
                 <th>Telefon</th>
@@ -37,25 +36,26 @@
             @foreach (var person in Model)
             {
                 <tr>
-                    <td>@person.ID</td>
                     <td>@person.FirstName</td>
                     <td>@person.LastName</td>
                     <td>@person.Phone</td>
                     <td>@person.Email</td>
                     <td>@person.Created</td>
                     <td>@person.Updated</td>
-                    <td><a href="/Person/Edit/@person.ID">Edycja</a> | <a href="/Person/Remove/@person.ID">Usuń</a></td>
+                    <td><a href="/Person/Edit/@person.ID" style="color: #dda200">Edycja</a> | <a href="/Person/Remove/@person.ID" class="text-danger">Usuń</a></td>
                 </tr>
             }
         </table>
     </div>
 </section>
 
-<section class="my-section">
-    <div class="container">
-        <a href="/Person/Index/?id=@ViewBag.Previous&searchText=@ViewBag.SearchText" class="btn btn-secondary @ViewBag.PreviousDis my-pagebutton">Poprzednia strona</a>
-        <span>Strona @ViewBag.Page</span>
-        <a href="/Person/Index/?id=@ViewBag.Next&searchText=@ViewBag.SearchText" class="btn btn-secondary @ViewBag.NextDis my-pagebutton"> Następna strona </a>
+<section class="row mb-4">
+    <div class="col-sm-4">
+        <a href="/Person/Index/?id=@ViewBag.Previous&searchText=@ViewBag.SearchText" class="btn btn-info ml-5 @ViewBag.PreviousDis float-left">Poprzednia strona</a>
+    </div>
+    <span class="col-sm-4 text-center">Strona @ViewBag.Page</span>
+    <div class="col-sm-4">
+        <a href="/Person/Index/?id=@ViewBag.Next&searchText=@ViewBag.SearchText" class="btn btn-info mr-5 @ViewBag.NextDis float-right"> Następna strona </a>
     </div>
 </section>
 
