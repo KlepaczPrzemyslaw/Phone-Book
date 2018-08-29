@@ -27,7 +27,13 @@ namespace PhoneBook
 			}
 
 			app.UseStaticFiles();
-			app.UseMvcWithDefaultRoute();
+
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller=Person}/{action=Index}/{id?}");
+			});
 		}
 	}
 }
